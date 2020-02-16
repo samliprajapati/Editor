@@ -1,0 +1,20 @@
+.ant-layout-header {
+  height: 64px;
+  padding: 0px;
+  line-height: 64px;
+  background: none;
+}
+.searchInput {
+  padding-left: 80px;
+  border: 0 px solid red;
+}
+.ant-input-affix-wrapper .ant-input-suffix {
+  left: 60px;
+}
+.ant-input-affix-wrapper .ant-input:not(:last-child) {
+  padding-right: 30px;
+  border: none;
+}
+.profile {
+  padding-left: 550px;
+}
