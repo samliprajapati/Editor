@@ -18,3 +18,15 @@
 .profile {
   padding-left: 550px;
 }
+.side-menu-header {
+  display: flex;
+  justify-content: space-around;
+}
+.heading {
+  padding-top: 10px;
+}
+.content-heading {
+  font-size: 40px;
+  margin: 10px;
+  font-weight: 400;
+}

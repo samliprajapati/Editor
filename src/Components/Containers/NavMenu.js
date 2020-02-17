@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import {
   Layout,
   Menu,
-  Breadcrumb,
   Icon,
   Input,
   Avatar,
   Badge,
   Dropdown,
-  Button
+  Switch
 } from "antd";
 import "antd/dist/antd.css";
 import { MenuItem } from "rc-menu/lib/MenuItem";
@@ -19,32 +18,24 @@ import Sidemenu from "./Sidemenu";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { Search } = Input;
+function onChange(checked) {
+  console.log(`switch to ${checked}`);
+}
 
 const menu = (
   <Menu>
-    <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="http://www.alipay.com/"
-      >
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="http://www.taobao.com/"
-      >
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-        3rd menu item
-      </a>
-    </Menu.Item>
+    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Menu.Item>Dark mode</Menu.Item>
+      <Switch defaultChecked onChange={onChange} />
+    </div>
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item>What's new</Menu.Item>
+    <Menu.Item>Help</Menu.Item>
+    <Menu.Item>Send feedback</Menu.Item>
+    <Menu.Item>Hints and shortcuts</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item>Log out</Menu.Item>
   </Menu>
 );
 
