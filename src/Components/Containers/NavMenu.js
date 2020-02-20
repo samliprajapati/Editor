@@ -12,7 +12,6 @@ import {
 import "antd/dist/antd.css";
 import { MenuItem } from "rc-menu/lib/MenuItem";
 import "./Navmenu.css";
-import ProfileDropdown from "./ProfileDropdown";
 import SubMenu from "./Submenu";
 import Sidemenu from "./Sidemenu";
 
