@@ -10,31 +10,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Button } from "antd";
 import draftToHtml from "draftjs-to-html";
 
-const content = {
-  entityMap: {},
-  blocks: [
-    {
-      key: "637gr",
-      text: "Initialized from content state.",
-      type: "unstyled",
-      depth: 0,
-      inlineStyleRanges: [],
-      entityRanges: [],
-      data: {}
-    }
-  ]
-};
-
 class Editorcomponent extends Component {
   constructor(props) {
     super(props);
-    // const html = "<p>Hey this <strong>editor</strong> rocks 😀</p>";
-    // const contentBlock = htmlToDraft(html);
-    // if (contentBlock) {
-    //   const contentState = ContentState.createFromBlockArray(
-    //     contentBlock.contentBlocks
-    //   );
-    // const editorState = EditorState.createWithContent(contentState);
     this.state = {
       editorState: {}
     };
@@ -60,10 +38,14 @@ class Editorcomponent extends Component {
       editorState: editorState
     });
   };
-
+  handleSubmit = editorState => {
+    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    const editText = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    this.props.handleUpdate(editText);
+  };
   render() {
     const { editorState } = this.state;
-    // const htmlBody = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    console.log(this.props.editContent);
     return (
       <div>
         {this.props.editContent.Description && (
@@ -74,9 +56,7 @@ class Editorcomponent extends Component {
             onEditorStateChange={this.onEditorStateChange}
           />
         )}
-        <Button onClick={() => this.props.handleUpdate(editorState)}>
-          update
-        </Button>
+        <Button onClick={() => this.handleSubmit(editorState)}>update</Button>
       </div>
     );
   }
