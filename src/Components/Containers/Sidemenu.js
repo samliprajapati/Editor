@@ -50,11 +50,16 @@ export default class Sidemenu extends Component {
     });
     console.log(this.state.currentContent);
   };
-  handleUpdate = data => {
-    console.log(data);
+  handleUpdate = (data, id) => {
+    console.log(data, id);
     this.setState({
-      collection: data
+      collection: this.state.collection.map(item => {
+        return item.id === id ? { ...item, Description: data } : item;
+      })
     });
+    // this.setState({
+    //   collection: data
+    // });
   };
 
   toggle = () => {

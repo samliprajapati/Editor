@@ -14,7 +14,8 @@ class Editorcomponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: {}
+      editorState: "",
+      id: ""
     };
   }
 
@@ -22,8 +23,11 @@ class Editorcomponent extends Component {
     console.log(nextProps);
     console.log(this.props);
     const { editContent } = this.props;
+    const x = nextProps.editContent.id;
+    console.log(x);
     if (editContent.Description !== nextProps.editContent.Description) {
       this.setState({
+        id: x,
         editorState: EditorState.createWithContent(
           ContentState.createFromBlockArray(
             convertFromHTML(nextProps.editContent.Description)
@@ -41,7 +45,7 @@ class Editorcomponent extends Component {
   handleSubmit = editorState => {
     console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
     const editText = draftToHtml(convertToRaw(editorState.getCurrentContent()));
-    this.props.handleUpdate(editText);
+    this.props.handleUpdate(editText, this.state.id);
   };
   render() {
     const { editorState } = this.state;
