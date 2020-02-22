@@ -25,12 +25,12 @@ class Editorcomponent extends Component {
     const { editContent } = this.props;
     const x = nextProps.editContent.id;
     console.log(x);
-    if (editContent.Description !== nextProps.editContent.Description) {
+    if (editContent.description !== nextProps.editContent.description) {
       this.setState({
         id: x,
         editorState: EditorState.createWithContent(
           ContentState.createFromBlockArray(
-            convertFromHTML(nextProps.editContent.Description)
+            convertFromHTML(nextProps.editContent.description)
           )
         )
       });
@@ -52,15 +52,19 @@ class Editorcomponent extends Component {
     console.log(this.props.editContent);
     return (
       <div>
-        {this.props.editContent.Description && (
-          <Editor
-            editorState={editorState}
-            wrapperClassName="demo-wrapper"
-            editorClassName="demo-editor"
-            onEditorStateChange={this.onEditorStateChange}
-          />
+        {this.props.editContent.description && (
+          <div>
+            <Editor
+              editorState={editorState}
+              wrapperClassName="demo-wrapper"
+              editorClassName="demo-editor"
+              onEditorStateChange={this.onEditorStateChange}
+            />
+            <Button onClick={() => this.handleSubmit(editorState)}>
+              update
+            </Button>
+          </div>
         )}
-        <Button onClick={() => this.handleSubmit(editorState)}>update</Button>
       </div>
     );
   }

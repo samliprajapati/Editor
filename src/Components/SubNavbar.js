@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Menu } from "antd";
 import { MenuItem } from "rc-menu/lib/MenuItem";
 import "./Navmenu.css";
-export default class Submenu extends Component {
+export default class SubNavbar extends Component {
   render() {
     return (
       <div>

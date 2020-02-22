@@ -12,9 +12,8 @@ import {
 import "antd/dist/antd.css";
 import { MenuItem } from "rc-menu/lib/MenuItem";
 import "./Navmenu.css";
-import SubMenu from "./Submenu";
-import Sidemenu from "./Sidemenu";
-
+import SubNavbar from "./SubNavbar";
+import ContentList from "./ContentList";
 const { Header, Content, Footer, Sider } = Layout;
 const { Search } = Input;
 function onChange(checked) {
@@ -85,11 +84,8 @@ export default class NavMenu extends Component {
             </Menu>
           </Header>
 
-          <SubMenu />
-          <Sidemenu />
-          {/* <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
-          </Footer> */}
+          <SubNavbar />
+          <ContentList />
         </Layout>
         ,
       </div>
