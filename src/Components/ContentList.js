@@ -146,7 +146,7 @@ export default class ContentList extends Component {
             width={200}
             style={{ background: "#fff" }}
           >
-            <Menu defaultSelectedKeys={this.state.currentContent.id}>
+            <Menu defaultSelectedKeys={this.state.currentContent}>
               <Icon
                 type="plus"
                 onClick={this.showModal}
